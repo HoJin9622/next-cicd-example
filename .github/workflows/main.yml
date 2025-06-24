@@ -30,6 +30,7 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/nextjs-cicd-example:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
 
       - name: Checkout Kubernetes Manifests Repository
         uses: actions/checkout@v4

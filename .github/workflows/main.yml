@@ -44,7 +44,7 @@ jobs:
           cd nextjs-cicd-example-k8s/k8s
           # sed를 사용하여 deployment.yaml 파일의 이미지 태그를 업데이트합니다.
           # YOUR_DOCKER_USERNAME 부분도 실제 사용자 이름으로 변경해야 합니다.
-          sed -i "s|image: your_docker_username/nextjs-cicd-example:.*|image: ${{ secrets.DOCKER_USERNAME }}/nextjs-cicd-example:${{ github.sha }}|" deployment.yaml
+          sed -i "s|image: ${{ secrets.DOCKER_USERNAME }}/nextjs-cicd-example:.*|image: ${{ secrets.DOCKER_USERNAME }}/nextjs-cicd-example:${{ github.sha }}|" deployment.yaml
           cat deployment.yaml # 변경된 내용 확인
         env:
           YOUR_DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }} # GitHub Actions 환경 변수로 전달
